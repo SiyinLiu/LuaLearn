@@ -13,6 +13,23 @@
                 local a = 10
                 local b = 20
             end
-    如果你要删除一个全局变量，只需要给变量赋值nil
+    如果你要删除一个全局变量，只需要给变量赋值nil，释放资源
         eg:b = 10 print(b) b = nil
 ]]
+print("------------学习与定义局部变量-------------")
+num = 1
+local num2 = 20
+print("global num:".. num)
+print("local num2:"..num)
+print("-----------在语句块中定义-----------")
+if(true) then
+    local num3 = 10
+    print("在语句块内部显示局部变量 num3:"..num3)
+end
+-- print("output num3:"..num3) -- 报错 在语句块内定义的局部变量在语句块之外不能显示局部变量
+-- 在独立语句块中定义变量
+do
+    local num4 = 100
+    print("在语句块内部显示局部变量 num4:"..num4)
+end
+    --print("在语句块外部显示局部变量 num4"..num4)-- 报错 在语句块内定义的局部变量在语句块之外不能显示局部变量
