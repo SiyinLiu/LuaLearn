@@ -13,6 +13,8 @@ lua语言规定：
     函数可以声明为全局的与局部的，默认是全局的。
         eg：
             local function LocFunc()
+局部函数
+    function 前边可以加一个local 表示“局部函数”
 ]]
 function fun4()
     print("function 4")
