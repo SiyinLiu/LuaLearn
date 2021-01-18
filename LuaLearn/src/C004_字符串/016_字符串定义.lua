@@ -27,5 +27,6 @@ print("str4:",str4)
 print("str5:",str5)
 --输出字符串长度
 print("str1 length="..string.len(str1)) --使用字符串函数，输出字符串长度
+print("str2 #length="..#str2)
 print("str2 length="..string.len(str2))
-print("str2 length="..string.len(str2))
+print("str3 length="..string.len(str3))
