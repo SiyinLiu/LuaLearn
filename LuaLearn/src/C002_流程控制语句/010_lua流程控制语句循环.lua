@@ -33,8 +33,6 @@
         2: 迭代table元素的pairs
         3: 迭代数组元素的ipairs
         4: 迭代字符串中单词的string.gmatch等
-
-
 ]]
 num1 = 1;
 num2 = 5
