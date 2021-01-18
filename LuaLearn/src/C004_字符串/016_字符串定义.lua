@@ -11,3 +11,21 @@
         双引号间的一串字符
         [ [ 和 ] ]间的一串字符
 ]]
+str1 = "Hello"
+str2 = '你好'
+str3 = [[
+大家下午好
+下午好
+]]
+str4 = "大家'下午'好"
+str5 = '大家"下午"好'
+--str6 = "大家"下午好""
+print("str1:", str1)
+print("str2:",str2)
+print("str3:",str3)
+print("str4:",str4)
+print("str5:",str5)
+--输出字符串长度
+print("str1 length="..string.len(str1)) --使用字符串函数，输出字符串长度
+print("str2 length="..string.len(str2))
+print("str2 length="..string.len(str2))
