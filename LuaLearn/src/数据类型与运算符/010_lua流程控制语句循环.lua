@@ -15,7 +15,7 @@
         until(...) --()可以不要
     for循环分为数值循环，泛型循环(类似C#中的foreach)
             for 数值循环语句结构：
-            for 变量名称=初始值，结束值，（步长）do
+            for 变量名称=初始值，结束值，（步长）do --步长可不写默认为1
                 [循环体]
             do
             for 泛型循环语句结构
@@ -25,6 +25,14 @@
                 for 变量列表 in 迭代函数 do
                     [循环体]
                 end
+                注意 1、使用paris关键字循环输出数组类型的表时,for中必须使用k,v
+                    2、使用pairs关键字，循环中的k,v字母，可以使用任何字母或者合法的表示符代替
+    break 循环终止关键字(注意：lua中没有"continue"关键字语法)
+    注意:lua标准库中提供了几种迭代器:
+        1: 迭代文件每行的io.lines
+        2: 迭代table元素的pairs
+        3: 迭代数组元素的ipairs
+        4: 迭代字符串中单词的string.gmatch等
 
 
 ]]
@@ -63,10 +71,36 @@ for j = 0, 10 ,3 do
 end
 -- 泛型循环
 myArray = {0,3,5,10} -- 定义表(相当于C#中的数组与集合类)
+for k in ipairs(myArray) do --这里的k相当于索引，索引从1开始
+    --print("ipairs k="..k..",v="..v)
+    print("ipairs k="..k)
+end
 for k,v in ipairs(myArray) do --这里的k相当于索引，索引从1开始
-    print("k="..k..",v="..v)
+    print("ipairs k="..k..",v="..v)
+end
+-- 注意使用paris关键字循环输出数组类型的表时,for中必须使用k,v
+for k,v in pairs(myArray) do --这里的k相当于索引，索引从1开始
+    print("pairs k="..k..",v="..v)
+end
+myArrayName = {"逻辑","常伟斯","叶文杰"}
+for k,v in pairs(myArrayName) do
+    print("myArrayName k=".. k..",v="..v)
 end
 myArray2 = {num1 = "张三",num2 = "李四",num3 = "王五"} --定义表(具备键值对)
 for k,v in pairs(myArray2) do --这里的k相当于键
     print("myArray2 k=",k,"v=",v)
+end
+
+for s,t in pairs(myArray2) do
+    print("myArray2 s=",s,"t=",t)
+end
+
+print("测试break循环终止关键字")
+
+for i = 1, 100 do
+
+    if i > 10 then
+        break
+    end
+    print(i)
 end
