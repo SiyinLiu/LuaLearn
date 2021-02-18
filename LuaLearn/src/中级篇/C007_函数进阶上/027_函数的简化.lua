@@ -27,3 +27,6 @@ function SetNameArray(nameArray)
         print(v)
     end
 end
+nameArray = {1,32,2,3,4,23}
+SetNameArray(nameArray)
+SetNameArray {1,23,40} --参数的简化
