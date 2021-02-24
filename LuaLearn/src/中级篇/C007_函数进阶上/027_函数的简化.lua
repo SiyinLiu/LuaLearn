@@ -30,3 +30,6 @@ end
 nameArray = {1,32,2,3,4,23}
 SetNameArray(nameArray)
 SetNameArray {1,23,40} --参数的简化
+nameArray2 = {name1 = "小明",name2 = "小米"}
+SetNameArray(nameArray2)
+SetNameArray {name1 = "小明", name2 = "小王"}
