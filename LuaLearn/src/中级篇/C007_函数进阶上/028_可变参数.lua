@@ -10,6 +10,11 @@
     注意事项一：
         1> lua5.0以上版本通过局部table变量"arg"可以接收所有变长参数。arg是lua中内置的函数，本质是把可变参数封装为一个表。（#arg也表示参数的个数)
         2> 函数访问变长参数时，使用"{...}"表达式访问
+    注意事项二：
+        如果变长参数中可能包含nil，则必须使用"select"来访问变长参数。调用select时必须传入一个固定的实参select(选择开关)和一系列变长参数。
+        格式：
+            A:select（index,...)返回从index下标开始，一直到变长参数列表结尾的元素。
+            B:select（'#',...）返回参数列表的长度。
 ]]--
 
 function MultiParaVal(...)
@@ -43,3 +48,19 @@ function MultiParaVal3(...)
     end
 end
 MultiParaVal3("唐三","唐浩",nil,"伍子胥")
+
+--对于存在"nil"数值的输入，如何进行"可变参数"函数的编写
+-- select('#',...)表示，返回可变参数的长度
+-- select(i，...) 表示，返回从索引数值到可变参数所有内容
+function MultiParaVal4(...)
+    local num
+    --print("输出参数的个数:",#arg) --一定会报错，与select关键字会冲突
+    print("输入参数的个数：",select("#",...))
+    print(select(2,...))
+    for i = 1, select('#',...) do
+        num = select(i,...)
+        print(num)
+        --print(select(i,...))
+    end
+end
+MultiParaVal4("唐三","唐浩",nil,"伍子胥")
