@@ -21,3 +21,10 @@ end
 --调用
 print(GetNum1(9))
 print(GetNum2(10))
+-- 函数可以存储在表中
+funArray  = {}
+funArray[1] = GetNum1;
+funArray[2] = GetNum2;
+for i = 1, #funArray do
+    print(funArray[i](10 * i))
+end
