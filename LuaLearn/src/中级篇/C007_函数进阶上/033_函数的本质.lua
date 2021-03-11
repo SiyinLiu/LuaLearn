@@ -28,3 +28,13 @@ funArray[2] = GetNum2;
 for i = 1, #funArray do
     print(funArray[i](10 * i))
 end
+--函数的内容定义与表的初始化同时进行
+Funclib = {}
+Funclib.add = function(x , y)
+    return x + y
+end
+Funclib.sub = function(x,y)
+    return x -y;
+end
+print(Funclib.add(10,20))
+print(Funclib.sub(100,20))
