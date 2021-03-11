@@ -3,3 +3,63 @@
 --- Created by admin.
 --- DateTime: 2021/3/8 18:10
 ---
+--[[
+函数尾调用
+    lua可以在一个函数中，使用return返回另外一个函数，这种语法称为“尾调用”。（即：一个函数调用是另外一个函数的最后一个动作）
+    eg: function f(x)
+            return g(x)
+        end
+   应用场景—递归： 因为尾调用不占用“堆栈”空间，所以不会出现“栈溢出”,所以起到优化存储空间的作用。
+   注意事项：
+        封装函数中的return x()与return(x())含义不同，后者只能返回一个结果。（即：前者返回函数类型，后者是一个数值）
+   说明：
+        当A函数调用完B函数后就在没有可执行的工作时，程序就不需要返回那个B所在的函数。所以再尾调用之后程序也不需要保存任何关于该函数的栈信息。
+        由于”尾调用“不会耗费栈空间，所以一个程序可以拥有无数嵌套的”尾调用“而不用担心造成栈溢出。
+]]
+
+function FuncA()--不是尾调用
+    local res = math.abs(-88)
+    return res;
+end
+function FuncB() --不是尾调用
+    local res = FuncA();
+    return res;
+end
+res = FuncB();
+print("res:",res)
+
+
+function FuncA()--是尾调用
+    return math.abs(-88);
+end
+function FuncB() --不是尾调用
+    return FuncA();
+end
+res = FuncB();
+print("res:",res)
+
+-- 下面演示递归算法中，尾调用的作用
+-- 因为尾调用不占用“堆栈”空间，所以不会出现“栈溢出”,所以起到优化存储空间的作用。
+function RecurFunc(num)
+    if(num > 0) then
+        return RecurFunc(num - 1) --这是“尾调用”
+        -- return RecurFunc(num - 1) + 0 -- 这种不是“尾调用”（递归函数），这里如果进行10W次递归调用，则报“stack overflow”
+    else
+        return "End!"
+    end
+end
+res = RecurFunc(100000)
+print(res)
+print("封装函数中的return x()与return(x())含义不同，后者只能返回一个结果。（即：前者返回函数类型，后者是一个数值）")
+function Func()
+    print("Func")
+    --return FuncD() --此种方式，返回多个数值
+    return (FuncD()) --此种方式迫使只返回一个数值
+end
+
+function FuncD()
+    print("FunD")
+    return 100,200
+end
+res1,res2 = Func();
+print(res1,res2)
