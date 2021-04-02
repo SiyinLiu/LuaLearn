@@ -9,5 +9,16 @@
     注意事项：
         1：unpack 可以很容易的把table集合中数据“解包”输出。
         2、与之对应的是table.concat()函数，可以把table集合中数据“压缩”为一个字符串输出。
-
 ]]
+--eg1
+tab1 = {"hello","world","Every","one"}
+print(unpack(tab1))
+--eg2:（类似解包函数）
+function testFun(str1,str2,str3,str4)
+    print(str1..str2..str3..str4)
+end
+--调用
+testFun(unpack(tab1))
+--对比
+print("------对比concat()函数是输出-------------------")
+print(table.concat(tab1,"    "))
