@@ -62,7 +62,7 @@ print(nil and 80)   --output nil
 print(2 or 5)       --output 2
 print(false or 10)  --output 10
 print("你好" and 10)  --output 10
-print("test" or 5)
+print("test" or 5)  --output test
 print("-----------多重赋值------------")
 n1,n2,n3 = 10,20,30
 print(n1,n2,n3)
