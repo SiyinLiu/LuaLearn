@@ -32,7 +32,7 @@ print("res:",res)
 function FuncA()--是尾调用
     return math.abs(-88);
 end
-function FuncB() --不是尾调用
+function FuncB() --是尾调用
     return FuncA();
 end
 res = FuncB();
