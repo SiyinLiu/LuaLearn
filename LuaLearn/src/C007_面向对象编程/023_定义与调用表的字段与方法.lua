@@ -50,5 +50,5 @@ Person.Walking()
 Person.ShowInfo()
 --演示函数中如何提高灵活性问题。
 a = Person
---Person = nil
+Person = nil
 a.ShowInfo() --如果Person销毁,则a对象无法调用函数

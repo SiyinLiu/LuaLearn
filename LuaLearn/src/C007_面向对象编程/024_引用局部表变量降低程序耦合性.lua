@@ -11,6 +11,7 @@
 Person = {}
 --引入this变量
 local thisa = Person
+--thisa = Person //也可以达到效果
 --定义"字段"
 Person.Name = "小明"
 Person.Gender = "男"

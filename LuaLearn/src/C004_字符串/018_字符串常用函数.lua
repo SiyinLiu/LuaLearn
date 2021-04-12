@@ -24,10 +24,10 @@ print("===========字符串大小写转换=========")
 print("str1全部大写输出:"..string.upper(str1))
 print("str2全部小写输出:"..string.lower(str2))
 print("==========字符串查找==============")
-findPos,findNum,findStr = string.find(str1,"ua") --返回第一个符合条件的下标 str1是被搜索的字符串 a 表示搜索关键字 注意：字符串的下标是从1开始的
-findPos2,findNum1,findStr2 = string.find(str1,"ua",5) -- "5" 表示从字符串下标为5的位置开始搜索。
-print("字符串查找 findPos:"..findPos..",findNum:"..findNum..",findStr:",findStr)
-print("从下标5开始搜索="..findPos2..",findNum1:"..findNum1..",findStr2:",findStr2)
+findStartIndex,findEndIndex,findStr = string.find(str1,"ua") --返回第一个符合条件的下标 str1是被搜索的字符串 a 表示搜索关键字 注意：字符串的下标是从1开始的
+findStartIndex2,findEndIndex2,findStr2 = string.find(str1,"ua",5) -- "5" 表示从字符串下标为5的位置开始搜索。
+print("字符串查找 findStartIndex:"..findStartIndex..",findEndIndex:"..findEndIndex..",findStr:",findStr)
+print("从下标5开始搜索 findStartIndex2:"..findStartIndex2..",findEndIndex2:"..findEndIndex2..",findStr2:",findStr2)
 print("==========字符串截取=============")
 substr1 =string.sub("Hello world",1,3) --从下标1开始截取截取到下标3，是闭合的
 print("截取字符串 substr1="..substr1)

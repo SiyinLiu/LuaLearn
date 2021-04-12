@@ -30,4 +30,5 @@ end
 --演示函数中，增加“this”变量提高灵活性问题。
 a = Person
 Person = nil
+--a.Show() --会出问题
 a:Show() -- 更加完善与常用的方法调用方式

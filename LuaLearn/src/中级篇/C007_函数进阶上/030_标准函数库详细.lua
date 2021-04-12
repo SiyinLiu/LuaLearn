@@ -6,23 +6,36 @@
 数学函数库：
 
 ---]]
+print("======求绝对值=======")
 print(math.abs(-888)) --求绝对值
+print("======求最大值=======")
 print(math.max(12,33,44,11)) --求最大值
+print("======求最小值=======")
 print(math.min(133,12,33,44,1,22)) --求最小值
+print("======正弦=======")
 print(math.sin(0)) --正弦
+print("======余弦=======")
 print(math.cos(0)) --余弦
+print("======平方根=======")
 print(math.sqrt(4)) --平方根
+print("======向下取整=======")
 print(math.floor(18.88)) --向下取整
+print("======向上取整=======")
 print(math.ceil(19.11)) --向上取整
+print("======随机因子=======")
 print(math.randomseed(50000000)) -- 随机因子
+print("======随机数=======")
 print(math.random(1,10)) -- 随机数，这个随机数是不完善的每次运行都放回同样的值，和随机因子有关系，随机因子够大才可以
 --print(math.random(1,10))
 --print(math.random(1,10))
 --print(math.random(1,10))
-
+print("======得到全部的小写=======")
 print(string.lower('AbscsADGF')) -- 得到全部的小写
+print("======得到所有的大写=======")
 print(string.upper('AbsceADFG')) --得到所有的大写
 
 --操作系统库
+print("======得到日期=======")
 print(os.date()) --得到日期
+print("======得到时间戳=======")
 print(os.time()) --得到时间戳
