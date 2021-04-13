@@ -18,4 +18,18 @@
     当程序没有对一个Table进行引用时，Lua的垃圾回收器最终会删除该Table，并复用它的内存。
 
 ]]
+local myArray1 = {10,20,30,40,50,60}
+local myArray2 = {"李宁","安踏","刘德华","爱奇艺"}
+for i = 1, #myArray1 do
+    print("myArray1 "..tostring(i)..":"..tostring(myArray1[i]))
+end
+for i = 1, table.getn(myArray2) do
+    print("myArray2  "..tostring(i)..":"..myArray2[i])
+end
+print("=====下面是表的本质测试 可以将Table认为是一种动态分配的对象，程序仅保存对他们的引用。（即：可以理解为指针）======")
+local myArray3 = myArray1
+myArray1 = nil
+for i = 1, #myArray3 do --能正确输出
+    print("myArray3 "..tostring(i)..":"..tostring(myArray3[i]))
+end
 
