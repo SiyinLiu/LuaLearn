@@ -25,3 +25,14 @@ if numCheckPos == nil then
 else
     print("输入的账号包含非法信息，请重新输入【只能”字母、数字、下划线“组成】")
 end
+print("====开发综合小案例2：将指定阿拉伯数字(1,2,3,4....),转换为汉字。（一,二，三）====")
+function NumToCN(num)
+    local returnCN = ""
+    local StrCN = {"一","二","三","四","五","六","七","八","九","十"} --汉字数字集合
+    for i = 1, #tostring(num) do
+        returnCN = returnCN..StrCN[tonumber(string.sub(tostring(num),i,i))]
+    end
+    return returnCN
+end
+--测试调用
+print(NumToCN(268))
