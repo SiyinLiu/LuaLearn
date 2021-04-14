@@ -16,4 +16,32 @@ array_Row_2[1] = 100
 array_Row_2[2] = 200
 doubleArray[1] = array_Row_1
 doubleArray[2] = array_Row_2
+--循环输出二维数组(矩阵)的内容
+for i = 1, #doubleArray do
+    local lineShow = ""
+    for j = 1, #doubleArray[i] do
+        lineShow = lineShow..doubleArray[i][j].." "
+    end
+    print(lineShow)
+end
+print("====使用unpack函数简化输出=====")
+for k, v in ipairs(doubleArray) do
+    print(unpack(v))
+end
 
+print("====定义二维数组初始化函数=====")
+function CreateDoubleArray(Row,Column)
+    local doubleArray = {}              --输出结果二维数组
+    for i = 1, Row do
+        doubleArray[i] = {}
+        for j = 1, Column do
+            doubleArray[i][j] = 0
+        end
+    end
+    return doubleArray
+end
+--调用二维数组初始化函数
+local doubleArray1 = CreateDoubleArray(5,4)
+for k,v in ipairs(doubleArray1) do
+    print(unpack(v))
+end
