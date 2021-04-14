@@ -8,4 +8,40 @@
     由于Lua中Table是动态的实体，所以在Lua实现链表是非常方便的。
     每一个链表结点以Table来表示，结点包含两个值Next和Value,注意尾结点的Next应该是nil
 ]]
-local linkList = {}
+
+function CreateLinked(n)
+    n = (n or 0)                --"n"变量附加初始数值
+    local linkList = {}
+    n = n + 1
+    if(n > 10) then
+        return nil
+    end
+    --构造链表
+    linkList.Value = n
+    linkList.Next = CreateLinked(n)
+    return linkList
+end
+
+
+--开发链表迭代器
+--参数: 查询得目标链表
+function QueryLinkList(list)
+    return function()
+        local returnValue = nil
+        if(not list)then
+            return nil
+        end
+        returnValue = list.Value            --返回链表得数据
+        list = list.Next                    --移动到表得下一个结点
+        return returnValue
+    end
+end
+local linkList1 = CreateLinked(5)
+for v in QueryLinkList(linkList1) do
+    if(v) then
+        print(v)
+    else
+
+        break
+    end
+end
