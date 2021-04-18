@@ -38,7 +38,7 @@ setTable.__sub = setTable.Sub
 --第四步：设置元表
 setmetatable(tab_1,setTable)
 setmetatable(tab_2,setTable)
-setmetatable(tab_3,setTable)
+setmetatable(tab_3,setTable)                --测试“键值对”类型的表
 setmetatable(tab_4,setTable)
 --第五步：测试输出
 print("测试表的加法")
@@ -51,12 +51,12 @@ tabResult = tab_1 - tab_2
 for i = 1, #tabResult do
     print(tabResult[i])
 end
-print("测试表的加法")
+print("测试“键值对”表的加法")
 tabResult2 = tab_3 + tab_4
 for i,v in pairs(tabResult2) do
     print(i,v)
 end
-print("测试表的减法")
+print("测试“键值对”表的减法")
 tabResult2 = tab_3 - tab_4
 for i,v in pairs(tabResult2) do
     print(i,v)
