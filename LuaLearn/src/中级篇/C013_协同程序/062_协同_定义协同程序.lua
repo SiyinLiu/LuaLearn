@@ -11,6 +11,21 @@
     与真正的多线程的区别：
         线程与协同程序的主要区别在于，一个具有多个线程的程序可以同时运行几个线程，而协同程序却需要彼此协作的运行。
         也就是说多个协同程序在任意时刻，只能运行一个协同程序，只有当正在运行的协同程序显式的要求挂起时，它的执行才会暂停。
+    基本语法：
+        协同创建：coroutine.create() 创建一个thread类型的值表示新的协同程序，返回一个协同程序
+
+        协同创建2：coroutine.wrap 同样创建一个协同程序，返回一个函数
+
+        启动协同：coroutine.resume 启动或再次启动一个协同程序，并将其状态由挂起改为运行
+        检查协同状态：coroutine.status 检查协同状态（挂起 suspended 运行 running、死亡 dead、正常 normal)
+        挂起协同程序：coroutine.yield()    让一个协同程序挂起
+    协同的创建和挂起
+       coroutine.create:调用coroutine.create 可创建一个协同，其唯一的参数是该协同的主函数。create函数只负责创建
+       一个协同并返回其句柄（一个thread类型的对象），而不会启动该协同。
+       coroutine.wrap: 与coroutine.create类似，coroutine.wrap也会创建一个协同。不同之处在于，它不返回协同本身，而是返回一个函数。
+       wrap函数与Create函数的优缺点分析：
+        关于wrap函数的使用，wrap函数比create函数更易使用。它提供了一个对于协同程序编程实际所需的功能，即一个可以唤醒协同程序
+        的函数。但也缺乏灵活性，无法检测出运行时的错误。
 ]]
 --定义一个协同程序
 cor1 = coroutine.create(
@@ -24,6 +39,26 @@ cor1 = coroutine.create(
         end
 )
 --测试
-print("cor 类型",type(cor1))                     --output: cor 类型	thread
-coroutine.resume(cor1)                          --启动协程
---coroutine.resume(cor1)                        --再次启动会继续运行协程
+--print("cor 类型",type(cor1))                     --output: cor 类型	thread
+--coroutine.resume(cor1)                          --启动协同
+----coroutine.resume(cor1)                        --再次启动会继续运行协同
+
+
+
+cor2 = coroutine.create(
+        function()
+            for i = 1, 10 do
+                print("协同二：",i)
+            end
+        end
+)
+
+coroutine.resume(cor1)
+coroutine.resume(cor2)
+--产看协同状态
+print("协同一状态：",coroutine.status(cor1))     --output suspended
+print("协同二状态",coroutine.status(cor2))       --output dead
+coroutine.resume(cor1)                         --再次启动协程一
+--检查两个协程最后的状态
+print("协同一状态：",coroutine.status(cor1))
+print("协同二状态：",coroutine.status(cor2))
