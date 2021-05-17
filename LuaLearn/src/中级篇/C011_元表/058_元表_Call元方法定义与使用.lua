@@ -4,7 +4,9 @@
 --- DateTime: 2021/4/18 20:35
 ---
 tab1 = {}
-function InvokeMethod()
+function InvokeMethod(parm1)
+    print(parm1)
+    print(type(parm1))
     print("本元表被调用")
 end
 setmetatable(tab1,{__call = InvokeMethod})
@@ -14,6 +16,7 @@ print(tab1())--相当于一个Table被执行。即就是元方法核心处理函
 tab2 = {10,20,30}
 function InvokeMethod2(num1,num2,num3,num4)
     print("本表被调用2")
+    print(type(num1))
     return num1,num2,num3,num4
 end
 setmetatable(tab2,{__call = InvokeMethod2})

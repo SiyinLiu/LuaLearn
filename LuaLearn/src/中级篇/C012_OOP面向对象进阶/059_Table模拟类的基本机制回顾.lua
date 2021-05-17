@@ -10,8 +10,8 @@
 Person = {}
 --定义字段
 Person.Name = "唐三"
---定义方法
 Person.Gender = "男"
+--定义方法
 function Person:PersonInfo()
     print(string.format("人员信息  姓名: %s 性别:%s",self.Name,self.Gender))
 end

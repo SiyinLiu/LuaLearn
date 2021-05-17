@@ -17,7 +17,8 @@
         4、给require赋值一个变量的时候，还可以加入local关键字，表示本别名方式只在本文件中起作用。
 ]]
 
-local model = require("TestModel")
+--local model = require("TestModel")
+local model = require("Test/C007_model")
 print(model.height)
 model.ToString()
 model.SetHeight(200)
