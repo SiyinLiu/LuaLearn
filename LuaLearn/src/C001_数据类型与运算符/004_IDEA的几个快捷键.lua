@@ -4,11 +4,16 @@
 --- DateTime: 2021/1/11 18:18
 ---
 --[[
-    常用的快捷方式介绍
-     Alt+Shift+F10,运行程序。（需要先选择运行的lua脚本）
-    直接运行程序
-     Ctrl+F5，Ctrl+Shift+F10,直接快速运行当前lua脚本。
-    注释
+    Ctrl+鼠标左键 快速定位到方法的主体(function)或者table的定义处或者字段的定义处（先鼠标浮在其上）；
+    Ctrl+G -----快速定位到哪一行代码；
+    Ctrl+F -----局部快速查找；
+    Ctrl+Shift+F ----全局快速查找；
+    Ctrl+R ----本地字符替换；
+    Ctrl+Shift+R ----全局字符替换；
+    Shift x2(连点两下Shift) ----快速查找并打开文件；
+    Alt+Shift+F10,----运行程序。（需要先选择运行的lua脚本）
+    Ctrl+F5，Ctrl+Shift+F10,直接快速运行当前lua脚本。
+    注释：
     Ctrl+/  这个是多行代码分行注释，每行一个注释符号。
     Ctrl+Shift+/ 这个是多行代码注释在一个块里
 ]]
