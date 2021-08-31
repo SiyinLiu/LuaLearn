@@ -3,20 +3,27 @@
 --- Created by admin.
 --- DateTime: 2021/5/17 11:09
 ---
-local C007_model = {}
+C007_model = {}
 C007_model.height = 170
 C007_model.width = 100
-
-C007_model.SetHeight = function(height)
-    C007_model.height = height;
-    print("height", C007_model.height)
+function C007_model:AddAge()
+    self.age = 100
+end
+function C007_model:SetHeight(height)
+    self.height = height;
+    print("height", self.height)
 end
 
-C007_model.SetWidth = function(width)
-    C007_model.width = width
-    print("width",C007_model.width)
+function C007_model:SetWidth(width)
+    self.width = width
+    print("width",self.width)
 end
-function C007_model.ToString()
-    print("height:"..C007_model.height..",width:"..C007_model.width)
+function C007_model:ToString()
+    if self.age then
+        print("height:"..self.height..",width:"..self.width..",age:"..self.age)
+    else
+        print("height:"..self.height..",width:"..self.width)
+    end
+
 end
 return C007_model

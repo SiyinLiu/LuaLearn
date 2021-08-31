@@ -31,6 +31,7 @@ end
 function Person.Walking() --第二种定义方式(常用)
     print("人在走路")
 end
+print("=========输出个人信息(函数中调用函数)===========")
 -- 输出个人信息(函数中调用函数)
 function Person.ShowInfo()
     print("调用我的个人信息")
@@ -39,15 +40,18 @@ function Person.ShowInfo()
     Person.Speak()
     Person.Walking()
 end
+print("=========调用“字段”与“方法”===========")
 --调用“字段”与“方法”
 print(Person.Name)
 print(Person.Gender)
 print(Person.Weight)
 print(Person.Height)
+print("=========调用“方法”===========")
 --调用“方法”
 Person.Speak()
 Person.Walking()
 Person.ShowInfo()
+print("=========演示函数中如何提高灵活性问题===========")
 --演示函数中如何提高灵活性问题。
 a = Person
 Person = nil
