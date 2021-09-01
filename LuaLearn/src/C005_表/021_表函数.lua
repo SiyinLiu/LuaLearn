@@ -4,5 +4,19 @@
 --- DateTime: 2021/1/19 16:59
 ---
 --[[
-
-]]
+table.insert(list, [pos, ]value)
+    在表 list 中的 pos 位置插入元素 value，并将原来在 pos 位置以及在 pos 位置后面的元素往后移。
+    pos 为可选参数，默认值是 #list+1，所以 table.insert(list, value) 会将元素 value 插入到表 list 的末尾处！
+table.remove(list[, pos])
+    移除表 list 中 pos 位置的元素，并将原来在 pos 位置后面的元素往前移（如果有必要），
+    返回这个被移除的值。pos 为可选参数，默认值是 #list，所以 table.remove(list) 会移除表 list 中的最后一个元素！
+table.concat (table [, sep [, start [, end]):
+    concat是concatenate(连锁, 连接)的缩写.
+    table.concat()函数列出参数中指定table的数组部分从start位置到end位置的所有元素, 元素间以指定的分隔符(sep)隔开。
+table.maxn (table)
+    指定table中所有正数key值中最大的key值. 如果不存在key值为正数的元素, 则返回0。(Lua5.2之后该方法已经不存在了,本文使用了自定义函数实现)
+table.remove (table [, pos])
+    返回table数组部分位于pos位置的元素. 其后的元素会被前移. pos参数可选, 默认为table长度, 即从最后一个元素删起。
+table.sort (table [, comp])
+    对给定的table进行升序排序。
+]]--

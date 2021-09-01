@@ -26,7 +26,10 @@ function Person:New(name, gender)
     subClass.Gender = gender
     return subClass
 end
-
+function Person:New2(childTable)
+    self.__index = self
+    setmetatable(childTable,self)
+end
 --定义子类
 local Student = Person:New("朱竹青","女")
 Student:PersonInfo()
@@ -37,3 +40,6 @@ print(Student.Name)
 print(Student.Gender)
 Student:PersonInfo()
 
+local GoWuyuan = {Name = "A"}
+Person:New2(GoWuyuan)
+print(GoWuyuan.Gender)

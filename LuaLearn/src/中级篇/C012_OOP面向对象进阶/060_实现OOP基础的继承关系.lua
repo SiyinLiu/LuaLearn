@@ -24,8 +24,13 @@ function YeWenJie:Speak()
     print(self.Name.." 说话方法")
 end
 --设置元表(元方法)
+--Person.__index = Person
+--setmetatable(YeWenJie,Person)
 setmetatable(YeWenJie,{__index = Person})
 print(YeWenJie.Address) --继承关系
 YeWenJie:PersonInfo()   --继承关系
 YeWenJie:Speak()
 print(YeWenJie.Name)
+YeWenJie.Age = "18"
+
+print(YeWenJie.Age)
